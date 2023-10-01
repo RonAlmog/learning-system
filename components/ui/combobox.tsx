@@ -24,7 +24,7 @@ interface ComboboxProps {
   onChange: (value: string) => void;
 }
 
-export function Combobox({ options, value, onChange }: ComboboxProps) {
+export const Combobox = ({ options, value, onChange }: ComboboxProps) => {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -69,4 +69,4 @@ export function Combobox({ options, value, onChange }: ComboboxProps) {
       </PopoverContent>
     </Popover>
   );
-}
+};
