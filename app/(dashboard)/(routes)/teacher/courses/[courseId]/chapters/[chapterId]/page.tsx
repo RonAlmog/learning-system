@@ -5,6 +5,8 @@ import { ArrowLeft, LayoutDashboard } from "lucide-react";
 import { redirect } from "next/dist/server/api-utils";
 import Link from "next/link";
 import ChapterTitleForm from "./_components/chapter-title-form";
+import ChapterDescriptionForm from "./_components/chapter-description-form";
+import { NextResponse } from "next/server";
 //import { useRouter } from "next/navigation";
 
 const ChapterPage = async ({
@@ -15,7 +17,7 @@ const ChapterPage = async ({
   const userId = auth();
 
   if (!userId) {
-    //  router.push("/");
+    return NextResponse.redirect("/");
   }
   const chapter = await db.chapter.findUnique({
     where: {
@@ -27,7 +29,7 @@ const ChapterPage = async ({
     },
   });
   if (!chapter) {
-    // router.push("/");
+    return NextResponse.redirect("/");
   }
 
   const requiredFields = [
@@ -68,6 +70,11 @@ const ChapterPage = async ({
             <h2 className="text-xl">Customize your chapter</h2>
           </div>
           <ChapterTitleForm
+            initialData={chapter}
+            courseId={params.courseId}
+            chapterId={params.chapterId}
+          />
+          <ChapterDescriptionForm
             initialData={chapter}
             courseId={params.courseId}
             chapterId={params.chapterId}
