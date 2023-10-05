@@ -10,6 +10,7 @@ import { NextResponse } from "next/server";
 import ChapterAccessForm from "./_components/chapter-access-form";
 import ChapterVideoForm from "./_components/chapter-video-form";
 import Banner from "@/components/banner";
+import ChapterActions from "./_components/chapter-actions";
 //import { useRouter } from "next/navigation";
 
 const ChapterPage = async ({
@@ -44,6 +45,7 @@ const ChapterPage = async ({
   const completedFields = requiredFields.filter(Boolean).length;
 
   const completionText = `(${completedFields}/${totalFields})`;
+  const isComplete = requiredFields.every(Boolean);
 
   return (
     <>
@@ -70,6 +72,12 @@ const ChapterPage = async ({
                   Complete all fields {completionText}
                 </span>
               </div>
+              <ChapterActions
+                disabled={!isComplete}
+                courseId={params.courseId}
+                chapterId={params.chapterId}
+                isPublished={chapter.isPublished}
+              />
             </div>
           </div>
         </div>
