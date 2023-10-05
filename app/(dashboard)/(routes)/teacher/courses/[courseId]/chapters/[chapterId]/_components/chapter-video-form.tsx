@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { Chapter, Course, MuxData } from "@prisma/client";
 import Image from "next/image";
 import { FileUpload } from "@/components/file-upload";
+import MuxPlayer from "@mux/mux-player-react";
 
 interface ChapterVideoFormProps {
   initialData: Chapter & { muxData?: MuxData | null };
@@ -71,7 +72,9 @@ const ChapterVideoForm = ({
             <Video className="h-10 w-10 text-slate-500" />
           </div>
         ) : (
-          <div className="relative aspect-video mt-2">Video uploaded!</div>
+          <div className="relative aspect-video mt-2">
+            <MuxPlayer playbackId={initialData?.muxData?.playbackId || ""} />
+          </div>
         ))}
       {isEditing && (
         <div>
