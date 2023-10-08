@@ -796,6 +796,18 @@
   dependencies:
     tslib "^2.4.0"
 
+"@tanstack/react-table@^8.10.4":
+  version "8.10.4"
+  resolved "https://registry.yarnpkg.com/@tanstack/react-table/-/react-table-8.10.4.tgz#5ba5384836e3fd3d55835d23af33cd170ed765f7"
+  integrity sha512-t3VE77XotxEw1DdRc+b1f7wrD6Dr17CPcl9FVby4HFmfrC5zUIPhzAxPBYcm2WgS2g09n/hnITIQ5zh2zzu1hg==
+  dependencies:
+    "@tanstack/table-core" "8.10.4"
+
+"@tanstack/table-core@8.10.4":
+  version "8.10.4"
+  resolved "https://registry.yarnpkg.com/@tanstack/table-core/-/table-core-8.10.4.tgz#a983665c4a8680d346dc70b7f3f4f75b228e9883"
+  integrity sha512-1eJu8hY8U+bM/dkn+ldr/KtDqjcj3Wmn8u3n6rZsrb/wd88k8qmGTFcc+BA/fojGTqCRX1gKc8zMzuk2nauBEA==
+
 "@types/body-parser@*":
   version "1.19.3"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.19.3.tgz#fb558014374f7d9e56c8f34bab2042a3a07d25cd"
