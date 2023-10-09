@@ -1,9 +1,20 @@
+import { db } from "@/lib/db";
 import React from "react";
+import Categories from "./_components/categories";
 
 type Props = {};
 
-const Search = (props: Props) => {
-  return <div>search</div>;
+const SearchPage = async (props: Props) => {
+  const categories = await db.category.findMany({
+    orderBy: {
+      name: "asc",
+    },
+  });
+  return (
+    <div className="p-6">
+      <Categories items={categories} />
+    </div>
+  );
 };
 
-export default Search;
+export default SearchPage;
