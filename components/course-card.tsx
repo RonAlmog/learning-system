@@ -46,7 +46,7 @@ const CourseCard = ({
           </div>
         </div>
         {progress !== null ? (
-          <div>todo: projres</div>
+          <div>todo: progres component</div>
         ) : (
           <p className="text-md md:text-sm font-medium text-slate-700">
             {formatPrice(price)}
