@@ -1,7 +1,19 @@
+import { auth } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
+
 type Props = {};
 
-const ChapterIdPage = (props: Props) => {
-  return <div>ChapterIdPage</div>;
+const ChapterIdPage = async ({
+  params,
+}: {
+  params: { courseId: string; chapterId: string };
+}) => {
+  const { userId } = auth();
+  if (!userId) {
+    return redirect("/");
+  }
+
+  return <div>Chapter Id</div>;
 };
 
 export default ChapterIdPage;
