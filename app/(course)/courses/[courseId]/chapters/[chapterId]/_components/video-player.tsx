@@ -25,7 +25,22 @@ const VideoPlayer = ({
   completeOnEnd,
   title,
 }: VideoPlayerProps) => {
-  return <div>VideoPlayer</div>;
+  console.log("islocked", isLocked);
+  return (
+    <div className="relative aspect-video">
+      {!isLocked && (
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
+          <Loader2 className="h-8 w-8 animate-spin text-secondary" />
+        </div>
+      )}
+      {isLocked && (
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-800 flex-col gap-y-2 text-secondary">
+          <Lock className="h-8 w-8" />
+          <p>This chapter is locked</p>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default VideoPlayer;
