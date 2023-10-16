@@ -46,7 +46,7 @@ const CourseLayout = async ({
 
   return (
     // i added flex Here...
-    <div className="flex h-full">
+    <div className="h-full">
       <div className="h-[80px] md:pl-80 fixed inset-y-0 w-full z-50 border-red-700">
         <CourseNavbar course={course} progressCount={progressCount} />
       </div>

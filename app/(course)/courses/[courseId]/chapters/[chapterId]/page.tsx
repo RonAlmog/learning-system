@@ -4,8 +4,6 @@ import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import VideoPlayer from "./_components/video-player";
 
-type Props = {};
-
 const ChapterIdPage = async ({
   params,
 }: {

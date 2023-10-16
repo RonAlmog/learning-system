@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { useConfettiStore } from "@/hooks/use-confetti-store";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { useState } from "react";
 
 interface VideoPlayerProps {
   playbackId: string;
@@ -25,10 +26,11 @@ const VideoPlayer = ({
   completeOnEnd,
   title,
 }: VideoPlayerProps) => {
-  console.log("islocked", isLocked);
+  const [isReady, setIsReady] = useState(false);
+
   return (
     <div className="relative aspect-video">
-      {!isLocked && (
+      {!isReady && !isLocked && (
         <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
           <Loader2 className="h-8 w-8 animate-spin text-secondary" />
         </div>
@@ -38,6 +40,16 @@ const VideoPlayer = ({
           <Lock className="h-8 w-8" />
           <p>This chapter is locked</p>
         </div>
+      )}
+      {!isLocked && (
+        <MuxPlayer
+          title={title}
+          className={cn(!isReady && "hidden")}
+          onCanPlay={() => setIsReady(true)}
+          onEnded={() => {}}
+          autoPlay
+          playbackId={playbackId}
+        />
       )}
     </div>
   );
