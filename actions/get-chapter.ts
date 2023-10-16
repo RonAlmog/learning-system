@@ -81,6 +81,7 @@ export const getChapter = async ({
 
     return {
       chapter,
+      nextChapter,
       course,
       muxData,
       attachments,
