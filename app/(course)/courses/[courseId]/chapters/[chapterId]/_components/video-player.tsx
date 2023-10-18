@@ -38,7 +38,7 @@ const VideoPlayer = ({
       {isLocked && (
         <div className="absolute inset-0 flex items-center justify-center bg-slate-800 flex-col gap-y-2 text-secondary">
           <Lock className="h-8 w-8" />
-          <p>This chapter is locked</p>
+          <p className="text-sm">This chapter is locked</p>
         </div>
       )}
       {!isLocked && (
