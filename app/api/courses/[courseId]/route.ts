@@ -3,6 +3,7 @@ import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import Mux from "@mux/mux-node";
 import { Chapter } from "@prisma/client";
+import { isTeacher } from "@/lib/teacher";
 
 const { Video } = new Mux(
   process.env.MUX_TOKEN_ID!,
@@ -15,7 +16,7 @@ export async function DELETE(
 ) {
   try {
     const { userId } = auth();
-    if (!userId) {
+    if (!userId || !isTeacher(userId)) {
       return new NextResponse("Uauthorized", { status: 401 });
     }
 
@@ -63,7 +64,7 @@ export async function PATCH(
 ) {
   try {
     const { userId } = auth();
-    if (!userId) {
+    if (!userId || !isTeacher(userId)) {
       return new NextResponse("Uauthorized", { status: 401 });
     }
 
